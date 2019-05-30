@@ -1,15 +1,8 @@
 ---
 - name: show run
-  hosts: switch
-  connection: local
-  gather_facts: no
+  hosts: localhost
+  gather_facts: true
   
-  vars:
-    cli:
-      host: "{{ ansible_host }}"
-      username: hkt
-      password: Root123#
-      authorize: yes
   tasks:
     - name: show running-config
       ios_command:
