@@ -1,0 +1,7 @@
+[cisco]
+c3750 ansible_host=192.168.100.245
+
+[cisco:vars]
+ansible_user="{{ cisco_username }}"
+ansible_password="{{ cisco_password }}"
+ansible_connection=local
