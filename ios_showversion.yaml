@@ -1,15 +1,16 @@
 ---
 - name: show run
-  hosts: localhost
-  gather_facts: true
-  
+  hosts: "{{ cisco_switch }}"
+  connection: network_cli
+  gather_facts: no
+
   tasks:
     - name: show running-config
       ios_command:
         commands:
              - show version
       register: show_run
-    
+
     - name: msg
       debug:
           msg: "{{ show_run.stdout_lines }}"
